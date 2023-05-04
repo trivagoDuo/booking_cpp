@@ -7,8 +7,9 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 ENUM(Role, v_int32,
-        VALUE(GUEST, 0, "ROLE_GUEST"),
-        VALUE(ADMIN, 1, "ROLE_ADMIN")
+        VALUE(GUEST, 0, "ROLE_USER"),
+        VALUE(ADMIN, 2, "ROLE_ADMIN")
+        VALUE(TENANT, 1, "ROLE_TENANT" )
 )
 
 class UserDto : public oatpp::DTO {
