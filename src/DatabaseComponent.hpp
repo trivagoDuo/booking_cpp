@@ -2,7 +2,7 @@
 #ifndef EXAMPLE_POSTGRESQL_DATABASECOMPONENT_HPP
 #define EXAMPLE_POSTGRESQL_DATABASECOMPONENT_HPP
 
-#include "db/UserDb.hpp"
+#include "db/TenantsDb.hpp"
 #include "dto/ConfigDto.hpp"
 
 class DatabaseComponent {
@@ -11,7 +11,7 @@ public:
   /**
    * Create database client
    */
-  OATPP_CREATE_COMPONENT(std::shared_ptr<UserDb>, userDb)([] {
+  OATPP_CREATE_COMPONENT(std::shared_ptr<TenantsDb>, tenantDb)([] {
 
     OATPP_COMPONENT(oatpp::Object<ConfigDto>, config); // Get config component
 
@@ -27,7 +27,7 @@ public:
     auto executor = std::make_shared<oatpp::postgresql::Executor>(connectionPool);
 
     /* Create MyClient database client */
-    return std::make_shared<UserDb>(executor);
+    return std::make_shared<TenantsDb>(executor);
 
   }());
 

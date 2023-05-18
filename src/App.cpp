@@ -1,5 +1,5 @@
 
-#include "controller/UserController.hpp"
+#include "controller/TenantController.hpp"
 #include "AppComponent.hpp"
 #include "DatabaseComponent.hpp"
 #include "ServiceComponent.hpp"
@@ -23,7 +23,7 @@ void run(const oatpp::base::CommandLineArguments& args) {
   auto router = serviceComponent.httpRouter.getObject();
   oatpp::web::server::api::Endpoints docEndpoints;
 
-  docEndpoints.append(router->addController(UserController::createShared())->getEndpoints());
+  docEndpoints.append(router->addController(TenantsController::createShared())->getEndpoints());
 
   router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
 

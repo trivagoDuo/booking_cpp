@@ -1,20 +1,20 @@
 cmake_minimum_required(VERSION 3.1)
 
-set(project_name example-postgresql) ## rename your project here
+set(project_name booking_service) ## rename your project here
 
 project(${project_name})
 
 set(CMAKE_CXX_STANDARD 11)
 
 add_library(${project_name}-lib
-        src/controller/UserController.hpp
-        src/db/UserDb.hpp
+        src/controller/TenantController.hpp
+        src/db/TenantsDb.hpp
         src/dto/ConfigDto.hpp
         src/dto/PageDto.hpp
         src/dto/StatusDto.hpp
-        src/dto/UserDto.hpp
-        src/service/UserService.cpp
-        src/service/UserService.hpp
+        src/dto/TenantsDto.hpp
+        src/service/TenantsService.cpp
+        src/service/TenantsService.hpp
         src/AppComponent.hpp
         src/DatabaseComponent.hpp
         src/ErrorHandler.cpp

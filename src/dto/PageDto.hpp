@@ -2,7 +2,7 @@
 #ifndef EXAMPLE_POSTGRESQL_PAGEDTO_HPP
 #define EXAMPLE_POSTGRESQL_PAGEDTO_HPP
 
-#include "UserDto.hpp"
+#include "TenantsDto.hpp"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
@@ -18,12 +18,12 @@ class PageDto : public oatpp::DTO {
 
 };
 
-class UsersPageDto : public PageDto<oatpp::Object<UserDto>> {
+class UsersPageDto : public PageDto<oatpp::Object<TenantsDto>> {
 
-  DTO_INIT(UsersPageDto, PageDto<oatpp::Object<UserDto>>)
+  DTO_INIT(UsersPageDto, PageDto<oatpp::Object<TenantsDto>>)
 
 };
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif //EXAMPLE_POSTGRESQL_PAGEDTO_HPP
+#endif

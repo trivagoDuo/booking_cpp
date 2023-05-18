@@ -21,7 +21,7 @@ public:
     oatpp::swagger::DocumentInfo::Builder builder;
     
     builder
-    .setTitle("Example: user-service")
+    .setTitle("Example: tenant-service")
     .setDescription("Service which stores and reads user info to/from postgresql database")
     .setVersion("1.0")
     .setContactName("Leonid Stryzhevskyi")
