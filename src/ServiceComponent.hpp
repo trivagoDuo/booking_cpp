@@ -2,7 +2,7 @@
 #ifndef ServiceComponent_hpp
 #define ServiceComponent_hpp
 
-#include "dto/ConfigDto.hpp"
+#include "dto/conf/ConfigDto.hpp"
 #include "ErrorHandler.hpp"
 
 #include "oatpp/web/server/HttpConnectionHandler.hpp"

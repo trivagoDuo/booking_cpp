@@ -10,11 +10,12 @@ add_library(${project_name}-lib
         src/controller/TenantController.hpp
         src/controller/LandlordController.hpp
         src/db/BookingDb.hpp
-        src/dto/ConfigDto.hpp
-        src/dto/PageDto.hpp
-        src/dto/StatusDto.hpp
+        src/dto/conf/ConfigDto.hpp
+        src/dto/conf/PageDto.hpp
+        src/dto/conf/StatusDto.hpp
         src/dto/TenantsDto.hpp
         src/dto/LandlordsDto.hpp
+        src/dto/PropertysDto.hpp
         src/service/TenantsService.cpp
         src/service/TenantsService.hpp
         src/service/LandlordsService.cpp

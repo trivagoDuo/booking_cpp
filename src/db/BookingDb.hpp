@@ -4,6 +4,7 @@
 
 #include "dto/TenantsDto.hpp"
 #include "dto/LandlordsDto.hpp"
+#include "dto/PropertysDto.hpp"
 #include "oatpp-postgresql/orm.hpp"
 
 #include OATPP_CODEGEN_BEGIN(DbClient)
@@ -63,7 +64,10 @@ public:
         PREPARE(true), //<-- user prepared statement!
         PARAM(oatpp::String, id))
 
-    QUERY(createLandor,
+    /*
+     * Landlord
+     */
+    QUERY(createLandlor,
           "INSERT INTO landlords"
           "(id, username, password, name, email, phone) VALUES "
           "(uuid_generate_v4(), :landlord.username, :landlord.password, :landlord.name, :landlord.email, :landlord.phone)"
@@ -71,7 +75,7 @@ public:
           PREPARE(true),
           PARAM(oatpp::Object<LandlordsDto>, landlord))
 
-    QUERY(updateLandor,
+    QUERY(updateLandlor,
           "UPDATE landlords "
           "SET "
           " username=:landlord.username, "
@@ -104,4 +108,4 @@ public:
 
 #include OATPP_CODEGEN_END(DbClient) //<- End Codegen
 
-#endif //EXAMPLE_POSTGRESQL_USERDB_HPP
+#endif

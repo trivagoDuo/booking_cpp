@@ -5,7 +5,7 @@
 #include "oatpp/core/macro/codegen.hpp"
 #include "oatpp/core/Types.hpp"
 
-#include OATPP_CODEGEN_BEGIN(DTO)
+#include OATPP_CODEGEN_BEGIN(DTO)"oatpp/codegen/DTO_define.hpp"
 
 class StatusDto : public oatpp::DTO {
 
@@ -28,6 +28,6 @@ class StatusDto : public oatpp::DTO {
 
 };
 
-#include OATPP_CODEGEN_END(DTO)
+#include OATPP_CODEGEN_END(DTO)"oatpp/codegen/DTO_undef.hpp"
 
 #endif //EXAMPLE_POSTGRESQL_STATUSDTO_HPP

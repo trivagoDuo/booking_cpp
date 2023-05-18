@@ -3,7 +3,7 @@
 
 oatpp::Object<LandlordsDto> LandlordsService::createLandlord(const oatpp::Object<LandlordsDto>& dto) {
 
-    auto dbResult = m_database->createLandor(dto);
+    auto dbResult = m_database->createLandlor(dto);
     OATPP_ASSERT_HTTP(dbResult->isSuccess(), Status::CODE_500, dbResult->getErrorMessage());
 
     auto result = dbResult->fetch<oatpp::Vector<oatpp::Object<LandlordsDto>>>();
@@ -14,7 +14,7 @@ oatpp::Object<LandlordsDto> LandlordsService::createLandlord(const oatpp::Object
 
 oatpp::Object<LandlordsDto> LandlordsService::updateLandlord(const oatpp::Object<LandlordsDto>& dto) {
 
-    auto dbResult = m_database->updateLandor(dto);
+    auto dbResult = m_database->updateLandlor(dto);
     OATPP_ASSERT_HTTP(dbResult->isSuccess(), Status::CODE_500, dbResult->getErrorMessage());
     auto result = dbResult->fetch<oatpp::Vector<oatpp::Object<LandlordsDto>>>();
     OATPP_ASSERT_HTTP(result->size() == 1, Status::CODE_500, "Unknown error");

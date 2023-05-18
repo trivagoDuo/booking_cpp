@@ -3,7 +3,7 @@
 #define EXAMPLE_POSTGRESQL_DATABASECOMPONENT_HPP
 
 #include "db/BookingDb.hpp"
-#include "dto/ConfigDto.hpp"
+#include "dto/conf/ConfigDto.hpp"
 
 class DatabaseComponent {
 public:

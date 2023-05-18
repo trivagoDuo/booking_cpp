@@ -2,7 +2,7 @@
 #ifndef AppComponent_hpp
 #define AppComponent_hpp
 
-#include "dto/ConfigDto.hpp"
+#include "dto/conf/ConfigDto.hpp"
 
 #include "oatpp/parser/json/mapping/ObjectMapper.hpp"
 #include "oatpp/core/macro/component.hpp"

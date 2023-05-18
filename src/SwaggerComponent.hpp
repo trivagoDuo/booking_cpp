@@ -2,7 +2,7 @@
 #ifndef SwaggerComponent_hpp
 #define SwaggerComponent_hpp
 
-#include "dto/ConfigDto.hpp"
+#include "dto/conf/ConfigDto.hpp"
 
 #include "oatpp-swagger/Model.hpp"
 #include "oatpp-swagger/Resources.hpp"

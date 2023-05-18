@@ -3,8 +3,8 @@
 #define TenantsSERVICE_HPP
 
 #include "db/BookingDb.hpp"
-#include "dto/PageDto.hpp"
-#include "dto/StatusDto.hpp"
+#include "dto/conf/PageDto.hpp"
+#include "dto/conf/StatusDto.hpp"
 
 #include "oatpp/web/protocol/http/Http.hpp"
 #include "oatpp/core/macro/component.hpp"

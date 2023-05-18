@@ -2,9 +2,9 @@
 #ifndef EXAMPLE_POSTGRESQL_PAGEDTO_HPP
 #define EXAMPLE_POSTGRESQL_PAGEDTO_HPP
 
-#include "TenantsDto.hpp"
+#include "dto/TenantsDto.hpp"
 
-#include OATPP_CODEGEN_BEGIN(DTO)
+#include OATPP_CODEGEN_BEGIN(DTO)"oatpp/codegen/DTO_define.hpp"
 
 template<class T>
 class PageDto : public oatpp::DTO {
@@ -24,6 +24,6 @@ class UsersPageDto : public PageDto<oatpp::Object<TenantsDto>> {
 
 };
 
-#include OATPP_CODEGEN_END(DTO)
+#include OATPP_CODEGEN_END(DTO)"oatpp/codegen/DTO_undef.hpp"
 
 #endif

@@ -5,7 +5,7 @@
 #include "oatpp/core/Types.hpp"
 #include "oatpp/core/macro/codegen.hpp"
 
-#include OATPP_CODEGEN_BEGIN(DTO)
+#include OATPP_CODEGEN_BEGIN(DTO)"oatpp/codegen/DTO_define.hpp"
 
 class ConfigDto : public oatpp::DTO {
   
@@ -17,6 +17,6 @@ class ConfigDto : public oatpp::DTO {
   
 };
 
-#include OATPP_CODEGEN_END(DTO)
+#include OATPP_CODEGEN_END(DTO)"oatpp/codegen/DTO_undef.hpp"
 
-#endif /* ConfigDto_hpp */
+#endif
