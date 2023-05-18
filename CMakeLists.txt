@@ -8,13 +8,17 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_library(${project_name}-lib
         src/controller/TenantController.hpp
-        src/db/TenantsDb.hpp
+        src/controller/LandlordController.hpp
+        src/db/BookingDb.hpp
         src/dto/ConfigDto.hpp
         src/dto/PageDto.hpp
         src/dto/StatusDto.hpp
         src/dto/TenantsDto.hpp
+        src/dto/LandlordsDto.hpp
         src/service/TenantsService.cpp
         src/service/TenantsService.hpp
+        src/service/LandlordsService.cpp
+        src/service/LandlordsService.hpp
         src/AppComponent.hpp
         src/DatabaseComponent.hpp
         src/ErrorHandler.cpp

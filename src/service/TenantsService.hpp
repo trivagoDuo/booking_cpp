@@ -2,7 +2,7 @@
 #ifndef TenantsSERVICE_HPP
 #define TenantsSERVICE_HPP
 
-#include "db/TenantsDb.hpp"
+#include "db/BookingDb.hpp"
 #include "dto/PageDto.hpp"
 #include "dto/StatusDto.hpp"
 
@@ -13,7 +13,7 @@ class TenantsService {
 private:
   typedef oatpp::web::protocol::http::Status Status;
 private:
-  OATPP_COMPONENT(std::shared_ptr<TenantsDb>, m_database); // Inject database component
+  OATPP_COMPONENT(std::shared_ptr<BookingDb>, m_database); // Inject database component
 public:
 
   oatpp::Object<TenantsDto> createTenant(const oatpp::Object<TenantsDto>& dto);

@@ -72,9 +72,9 @@ public:
     info->pathParams["tenantId"].description = "Tenant Identifier";
   }
   ENDPOINT("GET", "tenants/{tenantId}", getTenantById,
-           PATH(String, userId))
+           PATH(String, tenantId))
   {
-    return createDtoResponse(Status::CODE_200, mTenatsService.getTenantById(userId));
+    return createDtoResponse(Status::CODE_200, mTenatsService.getTenantById(tenantId));
   }
   
   
@@ -93,12 +93,12 @@ public:
   
   
   ENDPOINT_INFO(deleteTenant) {
-    info->summary = "Delete Tenant by userId";
+    info->summary = "Delete Tenant by landlordId";
 
     info->addResponse<Object<StatusDto>>(Status::CODE_200, "application/json");
     info->addResponse<Object<StatusDto>>(Status::CODE_500, "application/json");
 
-    info->pathParams["tenantId"].description = "User Identifier";
+    info->pathParams["tenantId"].description = "Tenant Identifier";
   }
   ENDPOINT("DELETE", "tenants/{tenantId}", deleteTenant,
            PATH(String, tenantId))

@@ -1,4 +1,4 @@
-
+#ifndef TenantsDto_hpp
 #define TenantsDto_hpp
 
 #include "oatpp/core/macro/codegen.hpp"

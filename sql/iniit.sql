@@ -1,6 +1,6 @@
 CREATE EXTENSION IF NOT EXISTS "booking";
 
-CREATE TABLE IF NOT EXISTS Landlords (
+CREATE TABLE IF NOT EXISTS landlords (
                                          id serial PRIMARY KEY,
                                          username text NOT NULL,
                                          password text NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS Landlords (
 
 );
 
-CREATE TABLE IF NOT EXISTS Houses (
+CREATE TABLE IF NOT EXISTS property (
                                       id serial PRIMARY KEY,
                                       landlord_id integer NOT NULL REFERENCES landlords (id),
                                       address text NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS Houses (
                                       image_url text NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Tenants (
+CREATE TABLE IF NOT EXISTS tenants (
                                        id serial PRIMARY KEY,
                                        username text NOT NULL,
                                        password text NOT NULL,
@@ -32,9 +32,9 @@ CREATE TABLE IF NOT EXISTS Tenants (
 );
 
 
-CREATE TABLE IF NOT EXISTS Bookings (
+CREATE TABLE IF NOT EXISTS bookings (
                                         id serial PRIMARY KEY,
-                                        house_id integer NOT NULL REFERENCES houses (id),
+                                        house_id integer NOT NULL REFERENCES property (id),
                                         tenant_id integer NOT NULL REFERENCES tenants (id),
                                         landlord_id integer NOT NULL REFERENCES landlords (id),
                                         start_date date NOT NULL,
