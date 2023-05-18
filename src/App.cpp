@@ -26,9 +26,9 @@ void run(const oatpp::base::CommandLineArguments& args) {
   docEndpoints.append(router->addController(TenantsController::createShared())->getEndpoints());
 
   router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
-//    docEndpoints.append(router->addController(LandlordController::createShared())->getEndpoints());
-//
-//    router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
+    docEndpoints.append(router->addController(LandlordController::createShared())->getEndpoints());
+
+    router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
 
   /* create server */
 

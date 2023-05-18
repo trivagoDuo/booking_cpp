@@ -65,12 +65,13 @@ public:
         PARAM(oatpp::String, id))
 
     /*
-     * Landlord
+     * Landlord query
      */
+
     QUERY(createLandlor,
           "INSERT INTO landlords"
-          "(id, username, password, name, email, phone) VALUES "
-          "(uuid_generate_v4(), :landlord.username, :landlord.password, :landlord.name, :landlord.email, :landlord.phone)"
+          "( id, username, password, name, email, phone) VALUES "
+          "( uuid_generate_v4(), :landlord.username, :landlord.password, :landlord.name, :landlord.email, :landlord.phone)"
           "RETURNING *;",
           PREPARE(true),
           PARAM(oatpp::Object<LandlordsDto>, landlord))
@@ -104,6 +105,8 @@ public:
           "DELETE FROM landlords WHERE id=:id;",
           PREPARE(true), //<-- user prepared statement!
           PARAM(oatpp::String, id))
+
+
 };
 
 #include OATPP_CODEGEN_END(DbClient) //<- End Codegen

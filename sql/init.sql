@@ -1,7 +1,6 @@
-CREATE EXTENSION IF NOT EXISTS "booking";
-
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE IF NOT EXISTS landlords (
-                                         id serial PRIMARY KEY,
+                                         id varchar (256) PRIMARY KEY,
                                          username text NOT NULL,
                                          password text NOT NULL,
                                          name text NOT NULL,
@@ -11,8 +10,8 @@ CREATE TABLE IF NOT EXISTS landlords (
 );
 
 CREATE TABLE IF NOT EXISTS property (
-                                      id serial PRIMARY KEY,
-                                      landlord_id integer NOT NULL REFERENCES landlords (id),
+                                      id varchar (256) PRIMARY KEY,
+                                      landlord_id varchar (256) NULL REFERENCES landlords (id),
                                       address text NOT NULL,
                                       city text NOT NULL,
                                       state text NOT NULL,
@@ -23,7 +22,7 @@ CREATE TABLE IF NOT EXISTS property (
 );
 
 CREATE TABLE IF NOT EXISTS tenants (
-                                       id serial PRIMARY KEY,
+                                       id varchar (256) PRIMARY KEY,
                                        username text NOT NULL,
                                        password text NOT NULL,
                                        name text NOT NULL,
@@ -34,9 +33,9 @@ CREATE TABLE IF NOT EXISTS tenants (
 
 CREATE TABLE IF NOT EXISTS bookings (
                                         id serial PRIMARY KEY,
-                                        house_id integer NOT NULL REFERENCES property (id),
-                                        tenant_id integer NOT NULL REFERENCES tenants (id),
-                                        landlord_id integer NOT NULL REFERENCES landlords (id),
+                                        house_id varchar (256) NOT NULL REFERENCES property (id),
+                                        tenant_id varchar (256) NOT NULL REFERENCES tenants (id),
+                                        landlord_id varchar (256) NULL REFERENCES landlords (id),
                                         start_date date NOT NULL,
                                         end_date date NOT NULL,
                                         total_cost float NOT NULL

@@ -35,7 +35,7 @@ public:
         info->addResponse<Object<StatusDto>>(Status::CODE_500, "application/json");
         info->addResponse<Object<StatusDto>>(Status::CODE_500, "application/json");
     }
-    ENDPOINT("POST", "Landlords", createLandlador,
+    ENDPOINT("POST", "/landlords", createLandlador,
              BODY_DTO(Object<LandlordsDto>, landlordDto))
     {
         return createDtoResponse(Status::CODE_200, mLandlordsService.createLandlord(landlordDto));
