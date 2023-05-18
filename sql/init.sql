@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS tenants (
 
 
 CREATE TABLE IF NOT EXISTS bookings (
-                                        id serial PRIMARY KEY,
+                                        id varchar (256) PRIMARY KEY,
                                         house_id varchar (256) NOT NULL REFERENCES property (id),
                                         tenant_id varchar (256) NOT NULL REFERENCES tenants (id),
                                         landlord_id varchar (256) NULL REFERENCES landlords (id),
