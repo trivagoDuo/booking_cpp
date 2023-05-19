@@ -15,7 +15,7 @@ class PropertysDto : public oatpp::DTO {
     DTO_FIELD(String, state, "state");
     DTO_FIELD(String, country, "country");
     DTO_FIELD(String, zipcode, "zipcode");
-    DTO_FIELD(String, price_per_month, "price_per_month");
+    DTO_FIELD(Float64, price_per_month, "price_per_month");
     DTO_FIELD(String, image_url, "image_url");
 
 };
