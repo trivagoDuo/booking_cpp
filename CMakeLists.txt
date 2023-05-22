@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD 11)
 add_library(${project_name}-lib
         src/controller/TenantController.hpp
         src/controller/LandlordController.hpp
+        src/controller/PropertyController.hpp
         src/db/BookingDb.hpp
         src/dto/conf/ConfigDto.hpp
         src/dto/conf/PageDto.hpp
@@ -20,6 +21,8 @@ add_library(${project_name}-lib
         src/service/TenantsService.hpp
         src/service/LandlordsService.cpp
         src/service/LandlordsService.hpp
+        src/service/PropertysService.hpp
+        src/service/PropertysService.cpp
         src/AppComponent.hpp
         src/DatabaseComponent.hpp
         src/ErrorHandler.cpp

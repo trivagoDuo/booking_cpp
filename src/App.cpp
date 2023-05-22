@@ -1,5 +1,6 @@
 #include "controller/LandlordController.hpp"
 #include "controller/TenantController.hpp"
+#include "controller/PropertyController.hpp"
 #include "AppComponent.hpp"
 #include "DatabaseComponent.hpp"
 #include "ServiceComponent.hpp"
@@ -27,6 +28,10 @@ void run(const oatpp::base::CommandLineArguments& args) {
 
   router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
     docEndpoints.append(router->addController(LandlordController::createShared())->getEndpoints());
+
+    router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
+
+    docEndpoints.append(router->addController(PropertyController::createShared())->getEndpoints());
 
     router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
 

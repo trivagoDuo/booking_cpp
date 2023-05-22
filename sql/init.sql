@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS property (
                                       address text NOT NULL,
                                       city text NOT NULL,
                                       state text NOT NULL,
+                                      announcement_text text,
                                       country text NOT NULL,
                                       zipcode text NOT NULL,
                                       price_per_month float NOT NULL,

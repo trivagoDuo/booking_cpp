@@ -35,6 +35,19 @@ oatpp::Object<LandlordsDto> LandlordsService::getLandlordById(const oatpp::Strin
 
 }
 
+oatpp::Object<PropertysDto> LandlordsService::getPropertyByLandlordIdWithLandlord(const oatpp::String &id) {
+
+    auto dbResult = m_database->getPropertyByLandlordIdWithLandlord(id);
+    OATPP_ASSERT_HTTP(dbResult->isSuccess(), Status::CODE_500, dbResult->getErrorMessage());
+    OATPP_ASSERT_HTTP(dbResult->hasMoreToFetch(), Status::CODE_404, "Property not found");
+
+    auto result = dbResult->fetch<oatpp::Vector<oatpp::Object<PropertysDto>>>();
+    OATPP_ASSERT_HTTP(result->size() == 1, Status::CODE_500, "Unknown error");
+
+    return result[0];
+
+}
+
 oatpp::Object<PageDto<oatpp::Object<LandlordsDto>>> LandlordsService::getAllLandlords(const oatpp::UInt32& offset, const oatpp::UInt32& limit) {
 
     oatpp::UInt32 countToFetch = limit;
@@ -64,6 +77,6 @@ oatpp::Object<StatusDto> LandlordsService::deleteLandlordById(const oatpp::Strin
     auto status = StatusDto::createShared();
     status->status = "OK";
     status->code = 200;
-    status->message = "Tenant was successfully deleted";
+    status->message = "Landlord was successfully deleted";
     return status;
 }

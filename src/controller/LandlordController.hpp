@@ -43,7 +43,7 @@ public:
 
 
     ENDPOINT_INFO(putLandlord) {
-        info->summary = "Update Landlord by tenantId";
+        info->summary = "Update Landlord by landlordId";
 
         info->addConsumes<Object<LandlordsDto>>("application/json");
 
@@ -63,7 +63,7 @@ public:
 
 
     ENDPOINT_INFO(getLandlordById) {
-        info->summary = "Get one Landlord by tenantId";
+        info->summary = "Get one Landlord by LandlordId";
 
         info->addResponse<Object<LandlordsDto>>(Status::CODE_200, "application/json");
         info->addResponse<Object<StatusDto>>(Status::CODE_404, "application/json");
@@ -71,11 +71,28 @@ public:
 
         info->pathParams["landlordId"].description = "Landlords Identifier";
     }
+
     ENDPOINT("GET", "landlords/{landlordId}", getLandlordById,
              PATH(String, landlordId))
     {
         return createDtoResponse(Status::CODE_200, mLandlordsService.getLandlordById(landlordId));
     }
+
+    ENDPOINT_INFO(getPropertyByLandlordIdWithLandlord) {
+        info->summary = "Get one Property by LandlordId";
+
+        info->addResponse<Object<PropertysDto>>(Status::CODE_200, "application/json");
+        info->addResponse<Object<StatusDto>>(Status::CODE_404, "application/json");
+        info->addResponse<Object<StatusDto>>(Status::CODE_500, "application/json");
+
+        info->pathParams["landlordId"].description = "Landlords Identifier";
+    }
+    ENDPOINT("GET", "landlords/property/{landlordId}", getPropertyByLandlordIdWithLandlord,
+             PATH(String, landlordId))
+    {
+        return createDtoResponse(Status::CODE_200, mLandlordsService.getPropertyByLandlordIdWithLandlord(landlordId));
+    }
+
 
 
     ENDPOINT_INFO(getLandlords) {
