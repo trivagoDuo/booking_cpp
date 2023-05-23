@@ -130,3 +130,16 @@ oatpp::Object<StatusDto> PropertysService::deletePropertydById(const oatpp::Stri
     status->message = "Property was successfully deleted";
     return status;
 }
+
+oatpp::Object<BookingsDto> PropertysService::getBookingByPropertyIdWithProperty(const oatpp::String &id) {
+
+    auto dbResult = m_database-> getBookingByPropertyIdWithProperty(id);
+    OATPP_ASSERT_HTTP(dbResult->isSuccess(), Status::CODE_500, dbResult->getErrorMessage());
+    OATPP_ASSERT_HTTP(dbResult->hasMoreToFetch(), Status::CODE_404, "Bookings not found");
+
+    auto result = dbResult->fetch<oatpp::Vector<oatpp::Object<BookingsDto>>>();
+    OATPP_ASSERT_HTTP(result->size() == 1, Status::CODE_500, "Unknown error");
+
+    return result[0];
+
+}

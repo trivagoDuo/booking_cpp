@@ -20,6 +20,7 @@ public:
     oatpp::Object<LandlordsDto> updateLandlord(const oatpp::Object<LandlordsDto>& dto);
     oatpp::Object<LandlordsDto> getLandlordById(const oatpp::String& id);
     oatpp::Object<PropertysDto> getPropertyByLandlordIdWithLandlord(const oatpp::String& id);
+    oatpp::Object<BookingsDto> getBookingByLandlordIdWihtLandlord(const oatpp::String& id);
     oatpp::Object<PageDto<oatpp::Object<LandlordsDto>>> getAllLandlords(const oatpp::UInt32& offset, const oatpp::UInt32& limit);
     oatpp::Object<StatusDto> deleteLandlordById(const oatpp::String& id);
 

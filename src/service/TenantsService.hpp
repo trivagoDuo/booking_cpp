@@ -21,6 +21,7 @@ public:
   oatpp::Object<TenantsDto> getTenantById(const oatpp::String& id);
   oatpp::Object<PageDto<oatpp::Object<TenantsDto>>> getAllTenants(const oatpp::UInt32& offset, const oatpp::UInt32& limit);
   oatpp::Object<StatusDto> deleteTenantById(const oatpp::String& id);
+  oatpp::Object<BookingsDto> getBookingByTenatIdWihtTenant(const oatpp::String& id);
 
 };
 

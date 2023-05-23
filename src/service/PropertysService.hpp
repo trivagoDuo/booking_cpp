@@ -25,7 +25,7 @@ public:
     oatpp::Object<PropertysDto> getPropertyByAddreess(const oatpp::String& address);
     oatpp::Object<PageDto<oatpp::Object<PropertysDto>>> getAllPropertys(const oatpp::UInt32& offset, const oatpp::UInt32& limit);
     oatpp::Object<StatusDto> deletePropertydById(const oatpp::String& id);
-
+    oatpp::Object<BookingsDto> getBookingByPropertyIdWithProperty(const oatpp::String& id);
 };
 
 #endif

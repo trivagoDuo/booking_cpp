@@ -17,6 +17,7 @@ add_library(${project_name}-lib
         src/dto/TenantsDto.hpp
         src/dto/LandlordsDto.hpp
         src/dto/PropertysDto.hpp
+        src/dto/BookingsDto.hpp
         src/service/TenantsService.cpp
         src/service/TenantsService.hpp
         src/service/LandlordsService.cpp
