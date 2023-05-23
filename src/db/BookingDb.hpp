@@ -5,6 +5,8 @@
 #include "dto/TenantsDto.hpp"
 #include "dto/LandlordsDto.hpp"
 #include "dto/PropertysDto.hpp"
+#include "dto/BookingsDto.hpp"
+
 #include "oatpp-postgresql/orm.hpp"
 
 #include OATPP_CODEGEN_BEGIN(DbClient)
@@ -64,6 +66,11 @@ public:
         PREPARE(true), //<-- user prepared statement!
         PARAM(oatpp::String, id))
 
+    QUERY(getBookingByTenatIdWihtTenant,
+          "SELECT * FROM tenants JOIN bookings ON tenants.id = bookings.tenant_id WHERE tenants.id=:id;",
+          PREPARE(true), //<-- user prepared statement!
+          PARAM(oatpp::String, id))
+
     /*
      * Landlord query
      */
@@ -112,6 +119,10 @@ public:
           PREPARE(true), //<-- user prepared statement!
           PARAM(oatpp::String, id))
 
+    QUERY(getBookingByLandlordIdWihtLandlord,
+          "SELECT * FROM landlords JOIN bookings ON landlords.id = bookings.landlord_id WHERE landlords.id=:id;",
+          PREPARE(true), //<-- user prepared statement!
+          PARAM(oatpp::String, id))
     /*
     * Property query
     */
@@ -120,7 +131,7 @@ public:
     QUERY(createProperty,
           "INSERT INTO landlords"
           "( id, landlord_id, address, city, state, zipcode, price_per_month, image_url, announcement_text) VALUES "
-          "( uuid_generate_v4(), :property.landlord_id, :property.address, :property.city, :property.state, :property.zipcode, :property.price_per_month, :property.image_url), :property.announcement_tex"
+          "( uuid_generate_v4(), :property.landlord_id, :property.address, :property.city, :property.state, :property.zipcode, :property.price_per_month, :property.image_url, :property.announcement_tex)"
           "RETURNING *;",
           PREPARE(true),
           PARAM(oatpp::Object<PropertysDto>, property))
@@ -181,6 +192,60 @@ public:
           "DELETE FROM property WHERE id=:id;",
           PREPARE(true), //<-- user prepared statement!
           PARAM(oatpp::String, id))
+
+    QUERY(getBookingByPropertyIdWithProperty,
+          "SELECT * FROM property JOIN bookings ON property.id = bookings.house_id WHERE property.id=:id;",
+          PREPARE(true), //<-- user prepared statement!
+          PARAM(oatpp::String, id))
+
+    /*
+    * Bookings query
+    */
+    QUERY(createBooking,
+          "INSERT INTO bookings"
+          "( id, house_id, tenant_id, landlord_id, start_date, end_date, total_cost) VALUES "
+          "( uuid_generate_v4(), :booking.house_id, :booking.tenant_id, :booking.landlord_id,:booking.start_date, :booking.end_date, :booking.total_cost) "
+          "RETURNING *;",
+          PREPARE(true),
+          PARAM(oatpp::Object<BookingsDto>, booking))
+
+    QUERY(updateBooking,
+          "UPDATE bookings "
+          "SET "
+          " start_date=:booking.start_date, "
+          " end_date=:booking.end_date, "
+          " total_cost=:booking.total_cost "
+          "WHERE "
+          " id=:booking.id "
+          "RETURNING *;",
+          PREPARE(true), //<-- user prepared statement!
+          PARAM(oatpp::Object<BookingsDto>, booking))
+
+    QUERY(getBookingById,
+          "SELECT * FROM booking WHERE id=:id;",
+          PREPARE(true), //<-- user prepared statement!
+          PARAM(oatpp::String, id))
+
+    QUERY(getBookingByPropertyId,
+          "SELECT * FROM booking WHERE house_id=:id;",
+          PREPARE(true), //<-- user prepared statement!
+          PARAM(oatpp::String, id))
+
+    QUERY(getBookingByLandlordId,
+          "SELECT * FROM booking WHERE landlord_id=:id;",
+          PREPARE(true), //<-- user prepared statement!
+          PARAM(oatpp::String, id))
+
+    QUERY(getBookingByTenatId,
+          "SELECT * FROM booking WHERE tenant_id=:id;",
+          PREPARE(true), //<-- user prepared statement!
+          PARAM(oatpp::String, id))
+
+    QUERY(getAllBookings,
+          "SELECT * FROM booking LIMIT :limit OFFSET :offset;",
+          PREPARE(true), //<-- user prepared statement!
+          PARAM(oatpp::UInt32, offset),
+          PARAM(oatpp::UInt32, limit))
 
 
 };
