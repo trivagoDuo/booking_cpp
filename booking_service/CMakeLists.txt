@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.1)
 
-set(project_name booking_service) ## rename your project here
+set(project_name booking_cpp) ## rename your project here
 
 project(${project_name})
 
@@ -52,10 +52,10 @@ add_definitions(
         -DOATPP_SWAGGER_RES_PATH="${oatpp-swagger_INCLUDE_DIRS}/../bin/oatpp-swagger/res"
 
         # Path to config file #
-        -DCONFIG_PATH="${CMAKE_CURRENT_LIST_DIR}/resources/config.json"
+        -DCONFIG_PATH="resources/config.json"
 
         ## Path to database migration scripts
-        -DDATABASE_MIGRATIONS="${CMAKE_CURRENT_SOURCE_DIR}/sql"
+        -DDATABASE_MIGRATIONS="sql"
 )
 
 #################################################################
@@ -68,7 +68,7 @@ target_link_libraries(${project_name}-exe ${project_name}-lib)
 add_dependencies(${project_name}-exe ${project_name}-lib)
 
 add_executable(${project_name}-test
-        test/tests.cpp
+        test/Tests.cpp
         )
 target_link_libraries(${project_name}-test ${project_name}-lib)
 add_dependencies(${project_name}-test ${project_name}-lib)

@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:15.3
+    environment:
+      POSTGRES_USER: "dev"
+      POSTGRES_PASSWORD: "gbplf"
+    ports:
+      - "5432:5432"
+  booking:
+    build: "./booking_service"
