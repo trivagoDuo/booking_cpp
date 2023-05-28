@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  postgres:
+  db:
     image: postgres:15.3
     environment:
       POSTGRES_USER: "dev"
@@ -9,3 +9,10 @@ services:
       - "5432:5432"
   booking:
     build: "./booking_service"
+    ports:
+      - "8080:8080"
+      - "8000:8000"
+  webapp:
+    build: "./webapp"
+    ports:
+      - "80:80"

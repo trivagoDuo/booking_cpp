@@ -3,7 +3,7 @@
     "host": "0.0.0.0",
     "port": 8000,
     "swaggerHost": "localhost:8000",
-    "dbConnectionString": "postgresql://localhost:5432"
+    "dbConnectionString": "postgresql://dev:gbplf@db:5432"
   },
   "local-docker": {
     "host": "0.0.0.0",

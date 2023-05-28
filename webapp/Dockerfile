@@ -1,4 +1,7 @@
-FROM ubuntu:latest
+FROM node:19
 LABEL authors="sirok1"
+WORKDIR /app
 
-ENTRYPOINT ["top", "-b"]
+COPY . .
+RUN npm i
+CMD ["npm", "run", "dev"]

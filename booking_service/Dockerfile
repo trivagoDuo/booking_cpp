@@ -1,10 +1,10 @@
 FROM ubuntu:latest
 LABEL authors="sirok1"
-
+#Designating the work area
 WORKDIR /app
-
+#Updating repositories
 RUN apt-get update
-
+#Setting Dependencies
 RUN apt-get install -y make git cmake build-essential postgresql-server-dev-all && \
     git clone https://github.com/oatpp/oatpp.git && \
     mkdir "oatpp/build"
@@ -26,8 +26,9 @@ RUN cmake .. && \
     make install
 
 WORKDIR "../.."
+#Copying a project into a container
 COPY . .
-RUN mkdir "build" && \
+#Build
+RUN cmake . && \
     make
-
-ENTRYPOINT ["top", "-b"]
+CMD ["./booking_cpp-exe"]
