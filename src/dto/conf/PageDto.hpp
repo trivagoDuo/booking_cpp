@@ -18,9 +18,26 @@ class PageDto : public oatpp::DTO {
 
 };
 
-class UsersPageDto : public PageDto<oatpp::Object<TenantsDto>> {
+class TenantsPageDto : public PageDto<oatpp::Object<TenantsDto>> {
 
-  DTO_INIT(UsersPageDto, PageDto<oatpp::Object<TenantsDto>>)
+  DTO_INIT(TenantsPageDto, PageDto<oatpp::Object<TenantsDto>>)
+
+};
+class LandlordsPageDto : public PageDto<oatpp::Object<LandlordsDto>> {
+
+    DTO_INIT(LandlordsPageDto, PageDto<oatpp::Object<LandlordsDto>>)
+
+};
+
+class BookingsPageDto : public PageDto<oatpp::Object<BookingsDto>> {
+
+    DTO_INIT(BookingsPageDto, PageDto<oatpp::Object<BookingsDto>>)
+
+};
+
+class PropertysPageDto : public PageDto<oatpp::Object<PropertysDto>> {
+
+    DTO_INIT(PropertysPageDto, PageDto<oatpp::Object<PropertysDto>>)
 
 };
 
