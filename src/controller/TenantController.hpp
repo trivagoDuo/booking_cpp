@@ -81,7 +81,7 @@ public:
   ENDPOINT_INFO(getTenants) {
     info->summary = "get all stored tenants";
 
-    info->addResponse<oatpp::Object<UsersPageDto>>(Status::CODE_200, "application/json");
+    info->addResponse<oatpp::Object<TenantsPageDto>>(Status::CODE_200, "application/json");
     info->addResponse<Object<StatusDto>>(Status::CODE_500, "application/json");
   }
   ENDPOINT("GET", "tenants/offset/{offset}/limit/{limit}", getTenants,

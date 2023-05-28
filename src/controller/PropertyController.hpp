@@ -159,7 +159,7 @@ public:
     ENDPOINT_INFO(getPropertys) {
         info->summary = "get all stored Propertys";
 
-        info->addResponse<oatpp::Object<UsersPageDto>>(Status::CODE_200, "application/json");
+        info->addResponse<oatpp::Object<PropertysPageDto>>(Status::CODE_200, "application/json");
         info->addResponse<Object<StatusDto>>(Status::CODE_500, "application/json");
     }
     ENDPOINT("GET", "propertys/offset/{offset}/limit/{limit}", getPropertys,

@@ -98,7 +98,7 @@ public:
     ENDPOINT_INFO(getLandlords) {
         info->summary = "get all stored landlords";
 
-        info->addResponse<oatpp::Object<UsersPageDto>>(Status::CODE_200, "application/json");
+        info->addResponse<oatpp::Object<TenantsDto>>(Status::CODE_200, "application/json");
         info->addResponse<Object<StatusDto>>(Status::CODE_500, "application/json");
     }
     ENDPOINT("GET", "landlor/offset/{offset}/limit/{limit}", getLandlords,

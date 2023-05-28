@@ -35,7 +35,7 @@ oatpp::Object<TenantsDto> TenantsService::getTenantById(const oatpp::String& id)
 
 }
 
-oatpp::Object<BookingsDto> TenantsService::getBookingByTenatIdWihtTenant(const oatpp::String &id) {}(const oatpp::String& id) {
+oatpp::Object<BookingsDto> TenantsService::getBookingByTenatIdWihtTenant(const oatpp::String &id) {
 
     auto dbResult = m_database->getBookingByTenatIdWihtTenant(id);
     OATPP_ASSERT_HTTP(dbResult->isSuccess(), Status::CODE_500, dbResult->getErrorMessage());
