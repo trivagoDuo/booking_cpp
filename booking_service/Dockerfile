@@ -1,34 +1,23 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04 AS builder
 LABEL authors="sirok1"
 #Designating the work area
 WORKDIR /app
 #Updating repositories
 RUN apt-get update
 #Setting Dependencies
-RUN apt-get install -y make git cmake build-essential postgresql-server-dev-all && \
-    git clone https://github.com/oatpp/oatpp.git && \
-    mkdir "oatpp/build"
-WORKDIR "oatpp/build"
-RUN apt-get install -y gcc && \
-    cmake .. && \
-    make install
-WORKDIR "../.."
-RUN git clone https://github.com/oatpp/oatpp-swagger.git && \
-    mkdir "oatpp-swagger/build"
-WORKDIR "oatpp-swagger/build"
-RUN cmake .. && \
-    make install
-WORKDIR "../.."
-RUN git clone https://github.com/oatpp/oatpp-postgresql.git && \
-    mkdir "oatpp-postgresql/build"
-WORKDIR "oatpp-postgresql/build"
-RUN cmake .. && \
-    make install
-
-WORKDIR "../.."
+RUN apt-get install -y make git cmake build-essential postgresql-server-dev-all
 #Copying a project into a container
 COPY . .
+#Installing dependencies
+CMD ["./utility/install-oatpp-modules.sh"]
 #Build
 RUN cmake . && \
-    make
+    make && \
+    mkdir build && \
+    cp booking_cpp-exe /build
+
+FROM sirok1/alpine-cmake:1.0.0 AS prod
+LABEL authors="sirok1"
+WORKDIR /prod
+COPY --from=build/booking_service /app/build ./
 CMD ["./booking_cpp-exe"]
