@@ -42,8 +42,8 @@ public:
         " username=:tenant.username, "
         " email=:tenant.email, "
         " password=:tenant.password, "
-        " name=:tenant.name"
-        " phone=:tenant.name"
+        " name=:tenant.name,"
+        " phone=:tenant.phone "
         "WHERE "
         " id=:tenant.id "
         "RETURNING *;",
@@ -89,8 +89,8 @@ public:
           " username=:landlord.username, "
           " email=:landlord.email, "
           " password=:landlord.password, "
-          " name=:landlord.name"
-          " phone=:landlord.name"
+          " name=:landlord.name,"
+          " phone=:landlord.phone "
           "WHERE "
           " id=:landlord.id "
           "RETURNING *;",
@@ -129,9 +129,9 @@ public:
 
 
     QUERY(createProperty,
-          "INSERT INTO landlords"
-          "( id, landlord_id, address, city, state, zipcode, price_per_month, image_url, announcement_text) VALUES "
-          "( uuid_generate_v4(), :property.landlord_id, :property.address, :property.city, :property.state, :property.zipcode, :property.price_per_month, :property.image_url, :property.announcement_tex)"
+          "INSERT INTO property"
+          "( id, landlord_id, address, city, state, country, zipcode, price_per_month, image_url, announcement_text) VALUES "
+          "( uuid_generate_v4(), :property.landlord_id, :property.address, :property.city, :property.state, :property.country, :property.zipcode, :property.price_per_month, :property.image_url, :property.announcement_text)"
           "RETURNING *;",
           PREPARE(true),
           PARAM(oatpp::Object<PropertysDto>, property))
@@ -142,10 +142,11 @@ public:
           " address=:property.address, "
           " city=:property.city, "
           " state=:property.state, "
-          " zipcode=:property.zipcode"
-          " price_per_month=:property.price_per_month"
-          " imag_url=:property.imag_url"
-          " announcement_text=:property.announcement_text"
+          " country=:property.country, "
+          " zipcode=:property.zipcode,"
+          " price_per_month=:property.price_per_month,"
+          " image_url=:property.image_url,"
+          " announcement_text=:property.announcement_text "
           "WHERE "
           " id=:property.id "
           "RETURNING *;",
