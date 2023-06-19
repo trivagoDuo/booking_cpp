@@ -205,8 +205,8 @@ public:
     QUERY(createBooking,
           "INSERT INTO bookings"
           "( id, house_id, tenant_id, landlord_id, start_date, end_date, total_cost) VALUES "
-          "( uuid_generate_v4(), :booking.house_id, :booking.tenant_id, :booking.landlord_id,:booking.start_date, :booking.end_date, :booking.total_cost) "
-          "RETURNING *;",
+          "( uuid_generate_v4(), :booking.house_id, :booking.tenant_id, :booking.landlord_id,:booking.start_date, :booking.end_date , :booking.total_cost) "
+          "RETURNING  * ;",
           PREPARE(true),
           PARAM(oatpp::Object<BookingsDto>, booking))
 
@@ -223,32 +223,32 @@ public:
           PARAM(oatpp::Object<BookingsDto>, booking))
 
     QUERY(getBookingById,
-          "SELECT * FROM booking WHERE id=:id;",
+          "SELECT * FROM bookings WHERE id=:id;",
           PREPARE(true), //<-- user prepared statement!
           PARAM(oatpp::String, id))
 
     QUERY(getBookingByPropertyId,
-          "SELECT * FROM booking WHERE house_id=:id;",
+          "SELECT * FROM bookings WHERE house_id=:id;",
           PREPARE(true), //<-- user prepared statement!
           PARAM(oatpp::String, id))
 
     QUERY(getBookingByLandlordId,
-          "SELECT * FROM booking WHERE landlord_id=:id;",
+          "SELECT * FROM bookings WHERE landlord_id=:id;",
           PREPARE(true), //<-- user prepared statement!
           PARAM(oatpp::String, id))
 
     QUERY(getBookingByTenatId,
-          "SELECT * FROM booking WHERE tenant_id=:id;",
+          "SELECT * FROM bookings WHERE tenant_id=:id;",
           PREPARE(true), //<-- user prepared statement!
           PARAM(oatpp::String, id))
 
     QUERY(getAllBookings,
-          "SELECT * FROM booking LIMIT :limit OFFSET :offset;",
+          "SELECT * FROM bookings LIMIT :limit OFFSET :offset;",
           PREPARE(true), //<-- user prepared statement!
           PARAM(oatpp::UInt32, offset),
           PARAM(oatpp::UInt32, limit))
     QUERY(deleteBookingById,
-          "DELETE FROM booking WHERE id=:id;",
+          "DELETE FROM bookings WHERE id=:id;",
           PREPARE(true), //<-- user prepared statement!
           PARAM(oatpp::String, id))
 

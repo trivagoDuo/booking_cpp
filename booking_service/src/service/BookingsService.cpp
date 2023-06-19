@@ -3,6 +3,7 @@
 
 oatpp::Object<BookingsDto> BookingsService::createBooking(const oatpp::Object<BookingsDto>& dto) {
 
+
     auto dbResult = m_database->createBooking(dto);
     OATPP_ASSERT_HTTP(dbResult->isSuccess(), Status::CODE_500, dbResult->getErrorMessage());
 

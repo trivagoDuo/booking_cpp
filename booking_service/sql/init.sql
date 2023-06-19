@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS bookings (
                                         house_id varchar (256) NOT NULL REFERENCES property (id),
                                         tenant_id varchar (256) NOT NULL REFERENCES tenants (id),
                                         landlord_id varchar (256) NOT NULL REFERENCES landlords (id),
-                                        start_date date NOT NULL,
-                                        end_date date NOT NULL,
+                                        start_date text NOT NULL,
+                                        end_date text NOT NULL,
                                         total_cost float NOT NULL
 );
