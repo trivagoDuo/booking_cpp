@@ -9,6 +9,7 @@
 #include "oatpp-swagger/Controller.hpp"
 
 #include "oatpp/network/Server.hpp"
+#include "controller/BookingController.hpp"
 
 #include <iostream>
 
@@ -32,6 +33,9 @@ void run(const oatpp::base::CommandLineArguments& args) {
     router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
 
     docEndpoints.append(router->addController(PropertyController::createShared())->getEndpoints());
+
+    router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
+    docEndpoints.append(router->addController(BookingController::createShared())->getEndpoints());
 
     router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
 

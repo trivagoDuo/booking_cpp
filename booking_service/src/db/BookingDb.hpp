@@ -247,7 +247,10 @@ public:
           PREPARE(true), //<-- user prepared statement!
           PARAM(oatpp::UInt32, offset),
           PARAM(oatpp::UInt32, limit))
-
+    QUERY(deleteBookingById,
+          "DELETE FROM booking WHERE id=:id;",
+          PREPARE(true), //<-- user prepared statement!
+          PARAM(oatpp::String, id))
 
 };
 

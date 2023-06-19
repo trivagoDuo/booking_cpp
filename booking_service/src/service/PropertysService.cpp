@@ -121,6 +121,7 @@ oatpp::Object<PageDto<oatpp::Object<PropertysDto>>> PropertysService::getAllProp
 
 }
 
+
 oatpp::Object<StatusDto> PropertysService::deletePropertydById(const oatpp::String& id) {
     auto dbResult = m_database->deletePropertyById(id);
     OATPP_ASSERT_HTTP(dbResult->isSuccess(), Status::CODE_500, dbResult->getErrorMessage());
