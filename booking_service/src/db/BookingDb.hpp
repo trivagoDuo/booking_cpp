@@ -251,6 +251,12 @@ public:
           "DELETE FROM bookings WHERE id=:id;",
           PREPARE(true), //<-- user prepared statement!
           PARAM(oatpp::String, id))
+    QUERY(CheckBooking,
+          "SELECT * FROM bookings WHERE house_id=:id and to_date(start_date,'YYYY-MM-DD') <= to_date(:startDate,'YYYY-MM-DD')   and to_date(end_date,'YYYY-MM-DD') >= to_date(:endDate,'YYYY-MM-DD')",
+          PREPARE(true), //<-- user prepared statement!
+          PARAM(oatpp::String, id),
+          PARAM(oatpp::String, startDate),
+          PARAM(oatpp::String, endDate))
 
 };
 

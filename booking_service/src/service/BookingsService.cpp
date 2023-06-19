@@ -3,6 +3,11 @@
 
 oatpp::Object<BookingsDto> BookingsService::createBooking(const oatpp::Object<BookingsDto>& dto) {
 
+    auto Check = m_database->CheckBooking(dto->house_id, dto->start_date, dto->end_date);
+    OATPP_ASSERT_HTTP(Check->isSuccess(), Status::CODE_500, Check->getErrorMessage());
+
+    auto items = Check->fetch<oatpp::Vector<oatpp::Object<BookingsDto>>>();
+    OATPP_ASSERT_HTTP(items->size() != 1, Status::CODE_409 ,"date unsupported");
 
     auto dbResult = m_database->createBooking(dto);
     OATPP_ASSERT_HTTP(dbResult->isSuccess(), Status::CODE_500, dbResult->getErrorMessage());
