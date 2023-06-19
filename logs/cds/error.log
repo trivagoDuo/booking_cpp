@@ -1,0 +1,34 @@
+2023/06/07 13:00:43 [alert] 1#1: unknown process 619 exited on signal 1
+2023/06/07 13:01:03 [alert] 1#1: unknown process 884 exited on signal 1
+2023/06/07 21:35:24 [emerg] 17#17: a duplicate default server for 0.0.0.0:80 in /etc/nginx/sites-available/default:22
+2023/06/07 21:38:24 [emerg] 17#17: a duplicate default server for 0.0.0.0:80 in /etc/nginx/sites-enabled/default:22
+2023/06/07 21:39:23 [emerg] 369#369: a duplicate default server for 0.0.0.0:80 in /etc/nginx/sites-enabled/default:22
+2023/06/07 21:40:14 [emerg] 381#381: a duplicate default server for 0.0.0.0:80 in /etc/nginx/sites-enabled/default:22
+2023/06/07 21:47:50 [emerg] 3080#3080: bind() to 0.0.0.0:80 failed (98: Unknown error)
+2023/06/07 21:47:50 [emerg] 3080#3080: bind() to [::]:80 failed (98: Unknown error)
+2023/06/07 21:47:50 [emerg] 3080#3080: bind() to 0.0.0.0:80 failed (98: Unknown error)
+2023/06/07 21:47:50 [emerg] 3080#3080: bind() to [::]:80 failed (98: Unknown error)
+2023/06/07 21:47:50 [emerg] 3080#3080: bind() to 0.0.0.0:80 failed (98: Unknown error)
+2023/06/07 21:47:50 [emerg] 3080#3080: bind() to [::]:80 failed (98: Unknown error)
+2023/06/07 21:47:50 [emerg] 3080#3080: bind() to 0.0.0.0:80 failed (98: Unknown error)
+2023/06/07 21:47:50 [emerg] 3080#3080: bind() to [::]:80 failed (98: Unknown error)
+2023/06/07 21:47:50 [emerg] 3080#3080: bind() to 0.0.0.0:80 failed (98: Unknown error)
+2023/06/07 21:47:50 [emerg] 3080#3080: bind() to [::]:80 failed (98: Unknown error)
+2023/06/07 21:47:50 [emerg] 3080#3080: still could not bind()
+2023/06/07 21:50:11 [emerg] 3150#3150: bind() to 0.0.0.0:8080 failed (98: Unknown error)
+2023/06/07 21:50:11 [emerg] 3150#3150: bind() to [::]:8080 failed (98: Unknown error)
+2023/06/07 21:50:11 [emerg] 3150#3150: bind() to 0.0.0.0:8080 failed (98: Unknown error)
+2023/06/07 21:50:11 [emerg] 3150#3150: bind() to [::]:8080 failed (98: Unknown error)
+2023/06/07 21:50:11 [emerg] 3150#3150: bind() to 0.0.0.0:8080 failed (98: Unknown error)
+2023/06/07 21:50:11 [emerg] 3150#3150: bind() to [::]:8080 failed (98: Unknown error)
+2023/06/07 21:50:11 [emerg] 3150#3150: bind() to 0.0.0.0:8080 failed (98: Unknown error)
+2023/06/07 21:50:11 [emerg] 3150#3150: bind() to [::]:8080 failed (98: Unknown error)
+2023/06/07 21:50:11 [emerg] 3150#3150: bind() to 0.0.0.0:8080 failed (98: Unknown error)
+2023/06/07 21:50:11 [emerg] 3150#3150: bind() to [::]:8080 failed (98: Unknown error)
+2023/06/07 21:50:11 [emerg] 3150#3150: still could not bind()
+2023/06/07 22:13:33 [emerg] 3555#3555: unexpected "}" in /etc/nginx/nginxconfig.io/general.conf:21
+2023/06/07 22:13:41 [emerg] 3576#3576: unexpected "}" in /etc/nginx/nginxconfig.io/general.conf:21
+2023/06/07 22:13:53 [emerg] 3580#3580: unexpected "}" in /etc/nginx/nginxconfig.io/general.conf:21
+2023/06/07 23:17:03 [emerg] 83#83: getpwnam("www-data") failed in /etc/nginx/nginx.conf:4
+2023/06/07 23:17:20 [emerg] 88#88: getpwnam("www-data") failed in /etc/nginx/nginx.conf:4
+2023/06/07 23:18:57 [emerg] 100#100: getpwnam("www-data") failed in /etc/nginx/nginx.conf:4

@@ -1,2 +1,7 @@
 /cmake-build-debug
 /.idea
+/booking_service/cmake-build-debug
+/data/pg/
+/webapp/.idea
+/assets_service/.idea
+/assets_service/.env

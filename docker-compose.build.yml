@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  booking_service:
+    build:
+      context: ./booking_service
+      target: builder
+    image: build/booking_service
+  webapp_service:
+    build:
+      context: ./webapp
+      target: builder
+    image: build/webapp_service

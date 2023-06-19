@@ -1,0 +1,2 @@
+2023/06/07 21:57:56 [error] 3271#3271: *11 directory index of "/var/www/cds/attachments/" is forbidden, client: 127.0.0.1, server: _, request: "GET / HTTP/1.1", host: "127.0.0.1:8080"
+2023/06/07 22:24:55 [error] 3810#3810: *5 directory index of "/var/www/cds/attachments" is forbidden, client: 127.0.0.1, server: _, request: "GET /tmp/ HTTP/1.1", host: "127.0.0.1:8080"
