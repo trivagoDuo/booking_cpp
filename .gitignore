@@ -1,6 +1,8 @@
 /cmake-build-debug
 /.idea
 /booking_service/cmake-build-debug
+/booking_service/CMakeLists.txt
+/booking_service/resources/config.json
 /data/pg/
 /webapp/.idea
 /assets_service/.idea

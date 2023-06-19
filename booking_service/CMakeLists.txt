@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.1)
 
-set(project_name booking_cpp) ## rename your project here
+set(project_name booking_service) ## rename your project here
 
 project(${project_name})
 
@@ -10,6 +10,7 @@ add_library(${project_name}-lib
         src/controller/TenantController.hpp
         src/controller/LandlordController.hpp
         src/controller/PropertyController.hpp
+        src/controller/BookingController.hpp
         src/db/BookingDb.hpp
         src/dto/conf/ConfigDto.hpp
         src/dto/conf/PageDto.hpp
@@ -18,6 +19,8 @@ add_library(${project_name}-lib
         src/dto/LandlordsDto.hpp
         src/dto/PropertysDto.hpp
         src/dto/BookingsDto.hpp
+        src/service/BookingsService.cpp
+        src/service/BookingsService.hpp
         src/service/TenantsService.cpp
         src/service/TenantsService.hpp
         src/service/LandlordsService.cpp
@@ -52,10 +55,10 @@ add_definitions(
         -DOATPP_SWAGGER_RES_PATH="${oatpp-swagger_INCLUDE_DIRS}/../bin/oatpp-swagger/res"
 
         # Path to config file #
-        -DCONFIG_PATH="resources/config.json"
+        -DCONFIG_PATH="${CMAKE_CURRENT_LIST_DIR}/resources/config.json"
 
         ## Path to database migration scripts
-        -DDATABASE_MIGRATIONS="sql"
+        -DDATABASE_MIGRATIONS="${CMAKE_CURRENT_SOURCE_DIR}/sql"
 )
 
 #################################################################
@@ -68,7 +71,7 @@ target_link_libraries(${project_name}-exe ${project_name}-lib)
 add_dependencies(${project_name}-exe ${project_name}-lib)
 
 add_executable(${project_name}-test
-        test/Tests.cpp
+        test/tests.cpp
         )
 target_link_libraries(${project_name}-test ${project_name}-lib)
 add_dependencies(${project_name}-test ${project_name}-lib)
