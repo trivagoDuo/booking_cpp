@@ -32,7 +32,7 @@ public:
         info->addConsumes<Object<BookingsDto>>("application/json");
 
         info->addResponse<Object<BookingsDto>>(Status::CODE_200, "application/json");
-        info->addResponse<Object<StatusDto>>(Status::CODE_500, "application/json");
+        info->addResponse<Object<StatusDto>>(Status::CODE_409, "application/json");
         info->addResponse<Object<StatusDto>>(Status::CODE_500, "application/json");
     }
     ENDPOINT("POST", "/bookings", createBooking,

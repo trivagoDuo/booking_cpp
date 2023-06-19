@@ -7,7 +7,8 @@ oatpp::Object<BookingsDto> BookingsService::createBooking(const oatpp::Object<Bo
     OATPP_ASSERT_HTTP(Check->isSuccess(), Status::CODE_500, Check->getErrorMessage());
 
     auto items = Check->fetch<oatpp::Vector<oatpp::Object<BookingsDto>>>();
-    OATPP_ASSERT_HTTP(items->size() != 1, Status::CODE_409 ,"date unsupported");
+    auto checsk = items->size() > 1;
+    OATPP_ASSERT_HTTP(!checsk, Status::CODE_409 ,"date used already");
 
     auto dbResult = m_database->createBooking(dto);
     OATPP_ASSERT_HTTP(dbResult->isSuccess(), Status::CODE_500, dbResult->getErrorMessage());
